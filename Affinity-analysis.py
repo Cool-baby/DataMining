@@ -1,5 +1,7 @@
 import numpy as np
 from collections import defaultdict
+from operator import itemgetter
+
 
 datafile = "DataFile/affinity_dataset.txt"
 datas = np.loadtxt(datafile)
@@ -40,3 +42,9 @@ if __name__ == "__main__":
                 continue
             connect(i,j)
     confidence = get_confidence()
+
+    print("Top five confidence")
+    sort_dict = sorted(confidence.items(),key=itemgetter(1),reverse=True)
+    for index in range(5):
+        rule = sort_dict[index][0]
+        print("Top {0}:Buy {1} and {2} at the same time,confidence:{3:0.3f}".format(index,features[rule[0]],features[rule[1]],confidence[rule]))
