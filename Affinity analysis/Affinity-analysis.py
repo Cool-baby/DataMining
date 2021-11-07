@@ -3,7 +3,7 @@ from collections import defaultdict
 from operator import itemgetter
 
 
-datafile = "DataFile/affinity_dataset.txt"
+datafile = "affinity_dataset.txt"
 datas = np.loadtxt(datafile)    #加载数据集
 
 features = ["bread","milk","butter","apple","banana"]   #定义列的属性
